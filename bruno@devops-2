@@ -1,8 +1,0 @@
-source '/home/bruno/.kube/completion.bash.inc'
-alias k="kubectl"
-force_color_prompt=yes
-PS1='\[\e[01;32m\]\u@\h\[\e[00m\]:\[\e[01;34m\]\w\[\e[00m\]$ '
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_ed25519
