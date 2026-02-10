@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-configmap
+  labels:
+    app: nginx
+spec:
+  containers:
+  - name: pod-configmap
+    image: nginx
+    ports:
+      - containerPort: 80
+      - containerPort: 444
+    volumeMounts:
+      - name: nginx-config-volume
+        mountPath: /etc/nginx/nginx.conf
+        subPath: nginx.conf
+      - name: nginx-tls
+        mountPath: /etc/nginx/tls
+  volumes:
+  - name: nginx-config-volume
+    configMap:
+      name: nginx-config
+  - name: nginx-tls
+    secret:
+      secretName: my-web-server
+      items:
+        - key: tls.crt
+          path: certificate.crt
+        - key: tls.key
+          path: private.key
+
