@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: giropops-senhas
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+#   cert-manager.io/issuer: "letsencrypt-staging"
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - giropops.containers.expert
+      #    - a50462b39456d4a6ea78cf5101781058-518e6489b6b088cf.elb.us-east-1.amazonaws.com
+    secretName: giropops-containers-expert-tls
+  rules:
+    #- host: giropops-senhas.io
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: giropops-senhas
+            port:
+              number: 5000
