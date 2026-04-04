@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx-antiaffinity
+  name: nginx-antiaffinity
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: nginx-antiaffinity
+  template:
+    metadata:
+      labels:
+        app: nginx-antiaffinity
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        ports:
+        - containerPort: 80
+        resources: {}
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchLabels:
+                app: nginx-antiaffinity
+            topologyKey: "node"

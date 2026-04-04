@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx-toleration
+  name: nginx-toleration
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: nginx-toleration
+  template:
+    metadata:
+      labels:
+        app: nginx-toleration
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        ports:
+        - containerPort: 80
+        resources: {}
+      tolerations:
+      - key: "gpu"
+        operator: "Equal"
+        value: "true"
+        effect: "NoSchedule"
