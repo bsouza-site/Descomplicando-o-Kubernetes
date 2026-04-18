@@ -1,0 +1,6 @@
+giropopsSenhas:
+  name: "giropops-senhas-helm"
+  image: "linuxtips/giropops-senhas:1.0"
+redis:
+  name: "redis-helm"
+  image: "redis"
