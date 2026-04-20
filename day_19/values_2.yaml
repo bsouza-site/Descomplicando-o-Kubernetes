@@ -65,15 +65,3 @@ services:
       app: "redis"
       env: "labs"
       live: "true"
-observability:
-  giropops-senhas:
-    logging: true
-    metrics:
-      enable: true
-      path: "/metrics"
-databases:
-  giropops-senhas:
-    mysql:
-      host: "mysql.svc.cluster.local"
-      port: 3306
-      name: "MyDB"

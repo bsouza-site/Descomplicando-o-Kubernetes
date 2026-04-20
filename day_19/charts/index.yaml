@@ -1,0 +1,15 @@
+apiVersion: v1
+entries:
+  giropops-senhas:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2026-04-20T13:15:46.201551582-03:00"
+    description: Criação do chart do app derador de senhas
+    digest: b11b3c485de77b0456c27a834e9b43ec444d7ba6406fd29870127df3dce7b88e
+    name: giropops-senhas
+    sources:
+    - https://github.com/badtuxx/giropops-senhas
+    urls:
+    - https://bsouza-site.github.io/chart-descom-k8s/giropops-senhas-0.1.0.tgz
+    version: 0.1.0
+generated: "2026-04-20T13:15:46.198709269-03:00"
